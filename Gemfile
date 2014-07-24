@@ -14,3 +14,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test, :development do
+  gem 'pry'
+  gem 'hirb'
+end
