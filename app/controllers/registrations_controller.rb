@@ -15,7 +15,7 @@ class RegistrationsController < ApplicationController
       render status: :unprocessable_entity,
         json: {
           success: false,
-          info: resource.errors,
+          info: @user.errors.messages,
           data: {}
         }
     end
