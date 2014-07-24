@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
-    @user = User.where(email: params[:email]).first
-    if @user && @user.authentication(params[:password])
+    @user = User.where(email: params[:user][:email]).first
+    if @user && @user.authenticate(params[:user][:password])
       session[:token] = @user.token
       render_logged_in
     else
@@ -10,8 +10,15 @@ class SessionsController < ApplicationController
   end
 
    def destroy
-     session[:token] = nil
-
+     token = params[:id]
+     @user = User.where(token: token).first
+     if @user
+       session[:token] = nil
+       @user.update_column(:token, nil)
+       render_logout
+     else
+       render_error('Could not logout')
+     end
    end
 
 private

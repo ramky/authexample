@@ -2,3 +2,5 @@
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/registrations -d "{\"user\":{\"email\":\"user1@example.com\",\"name\":\"anotheruser\",\"password\":\"secret\",\"password_confirmation\":\"secret\"}}"
 # Login
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/sessions -d "{\"user\":{\"email\":\"user1@example.com\",\"password\":\"secret\"}}"
+# Logout
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X DELETE http://localhost:3000/sessions/\?token\=JRYodzXgrLsk157ioYHf

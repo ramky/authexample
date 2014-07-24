@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
 private
 
   def generate_token
-   self.token = SecureRandom.hex(10)
+   self.token = SecureRandom.hex(16)
   end
 end
