@@ -1,4 +1,4 @@
-class RegistrationsController < ApplicationController
+class Api::V1::RegistrationsController < ApplicationController
   def create
     if params[:user][:password] == params[:user][:password_confirmation]
       @user = User.new(user_params)
