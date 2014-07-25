@@ -1,6 +1,10 @@
 # Create New User
-curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/api/v1/registrations -d "{\"user\":{\"email\":\"user1@example.com\",\"name\":\"anotheruser\",\"password\":\"secret\",\"password_confirmation\":\"secret\"}}"
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/api/v1/registrations -d "{\"user\":{\"email\":\"ramky.iyer@gmail.com\",\"name\":\"ram iyer\",\"password\":\"secret\",\"password_confirmation\":\"secret\"}}"
 # Login
-curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/api/v1/sessions -d "{\"user\":{\"email\":\"user1@example.com\",\"password\":\"secret\"}}"
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/api/v1/sessions -d "{\"user\":{\"email\":\"ramky.iyer@gmail.com\",\"password\":\"secret\"}}"
 # Logout
-curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X DELETE http://localhost:3000/api/v1/sessions/JRYodzXgrLsk157ioYHf
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Token token="7ab87a96b52b09c201db50142e21f3fd"'-X DELETE http://localhost:3000/api/v1/sessions/
+# show all tasks
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Token token="592f47ead2b0bcc5ab55181ecdf11aec"' -X GET http://localhost:3000/api/v1/tasks/
+# create task
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Token token="592f47ead2b0bcc5ab55181ecdf11aec"' -X POST http://localhost:3000/api/v1/tasks/ -d "{\"task\":{\"title\": \"seventh task\"}}"

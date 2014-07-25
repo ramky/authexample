@@ -17,10 +17,10 @@ private
     render status: 200,
       json: {
       success: true,
-      info: 'Registered',
+      info: 'You have Registered!',
       data: {
         user: @user.id,
-        auth_token: @user.token
+        token: @user.token
       }
     }
   end
