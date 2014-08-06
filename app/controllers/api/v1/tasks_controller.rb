@@ -14,7 +14,7 @@ class Api::V1::TasksController < ApplicationController
     if task.save
       render_task(task)
     else
-      render_task_error('Task was not saved')
+      render_task_error('Task was not saved.')
     end
   end
 
@@ -25,7 +25,7 @@ class Api::V1::TasksController < ApplicationController
       task.update_attribute(:completed, true)
       render_task(task)
     else
-      render_task_error('Task is not owned by user')
+      render_task_error('Task is not owned by user.')
     end
   end
 
@@ -35,7 +35,7 @@ class Api::V1::TasksController < ApplicationController
       task.update_attribute(:completed, false)
       render_task(task)
     else
-      render_task_error('Task is not owned by user')
+      render_task_error('Task is not owned by user.')
     end
   end
 

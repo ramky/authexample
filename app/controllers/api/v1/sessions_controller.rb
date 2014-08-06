@@ -6,7 +6,7 @@ class Api::V1::SessionsController < ApplicationController
       #session[:token] = @user.token
       render_logged_in
     else
-      render_error('Invalid credentials')
+      render_error('Invalid credentials.')
     end
   end
 
@@ -18,7 +18,7 @@ class Api::V1::SessionsController < ApplicationController
        @user.update_column(:token, nil)
        render_logout
      else
-       render_error('Could not logout')
+       render_error('Could not logout.')
      end
    end
 
@@ -27,7 +27,7 @@ private
     render status: 200,
       json: {
       success: true,
-      info: 'Logged in',
+      info: 'Logged in.',
       data: {
         token: @user[:token]
       }
