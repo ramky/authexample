@@ -15,11 +15,11 @@ class Api::V1::SessionsController < ApplicationController
     authenticate_with_http_token do |token, options|
       @user = User.find_by(token: token)
     end
-     if @user
-       #@user.update_column(:token, nil)
-       render_logout
-     else
-       render_error('Could not logout.')
+    if @user
+      #@user.update_column(:token, nil)
+      render_logout
+    else
+      render_error('Could not logout.')
      end
    end
 
