@@ -11,11 +11,12 @@ class Api::V1::SessionsController < ApplicationController
   end
 
    def destroy
-     token = params[:id]
-     @user = User.where(token: token).first
+    @user = nil
+    authenticate_with_http_token do |token, options|
+      @user = User.find_by(token: token)
+    end
      if @user
-       #session[:token] = nil
-       @user.update_column(:token, nil)
+       #@user.update_column(:token, nil)
        render_logout
      else
        render_error('Could not logout.')
